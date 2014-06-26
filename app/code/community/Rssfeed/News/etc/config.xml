@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Module configuration
+*
+* @author Magento
+*/
+-->
+<config>
+    <modules>
+        <Rssfeed_News>
+            <version>1.0.0.0.1</version>
+        </Rssfeed_News>
+    </modules>
+    <global>
+        <models>
+            <rssfeed_news>
+                <class>Rssfeed_News_Model</class>
+                <resourceModel>news_resource</resourceModel>
+            </rssfeed_news>
+            <news_resource>
+                <class>Rssfeed_News_Model_Resource</class>
+                <entities>
+                    <news>
+                        <table>rssfeed_news</table>
+                    </news>
+                </entities>
+            </news_resource>
+        </models>
+        <helpers>
+            <rssfeed_news>
+                <class>Rssfeed_News_Helper</class>
+            </rssfeed_news>
+        </helpers>
+        <blocks>
+            <rssfeed_news>
+                <class>Rssfeed_News_Block</class>
+            </rssfeed_news>
+        </blocks>
+        <resources>
+            <rssfeed_news_setup>
+                <setup>
+                    <module>Rssfeed_News</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </rssfeed_news_setup>
+        </resources>
+        <events>
+            <before_news_item_display>
+                <observers>
+                    <rssfeed_news>
+                        <class>rssfeed_news/observer</class>
+                        <method>beforeNewsDisplayed</method>
+                    </rssfeed_news>
+                </observers>
+            </before_news_item_display>
+        </events>
+    </global>
+    <frontend>
+        <routers>
+            <rssfeed_news>
+                <use>standard</use>
+                <args>
+                    <module>Rssfeed_News</module>
+                    <frontName>news</frontName>
+                </args>
+            </rssfeed_news>
+        </routers>
+        <layout>
+            <updates>
+                <rssfeed_news>
+                    <file>rssfeed_news.xml</file>
+                </rssfeed_news>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <rssfeed_News before="Mage_Adminhtml">rssfeed_News_Adminhtml</rssfeed_News>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <rssfeed_news>
+                    <file>Rssfeed_News.xml</file>
+                </rssfeed_news>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default>
+        <news>
+            <view>
+                <enabled>1</enabled>
+                <items_per_page>20</items_per_page>
+                <days_difference>3</days_difference>
+            </view>
+        </news>
+    </default>
+</config>
