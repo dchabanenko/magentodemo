@@ -4,6 +4,7 @@
  *
  * @author Magento
  */
+
 class Rssfeed_News_IndexController extends Mage_Core_Controller_Front_Action
 {
     /**
@@ -73,5 +74,12 @@ class Rssfeed_News_IndexController extends Mage_Core_Controller_Front_Action
             $itemBlock->setPage($page);
         }
         $this->renderLayout();
+    }
+
+    public function parseAction()
+    {
+        //$parser = new Rssfeed_News_Model_Parser();
+        $parser = Mage::getModel('rssfeed_news/parser');
+        $parser->parseNewRecords();
     }
 }

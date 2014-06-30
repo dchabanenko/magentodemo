@@ -38,7 +38,9 @@
                     </feeds>
                 </entities>
             </feeds_resource>
-
+            <rssfeed_parser>
+                <class>Rssfeed_News_Model</class>
+            </rssfeed_parser>
         </models>
         <helpers>
             <rssfeed_news>
@@ -89,6 +91,18 @@
             </updates>
         </layout>
     </frontend>
+    <crontab>
+        <jobs>
+            <my_cron>
+                <schedule>
+                    <cron_expr>*/5 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>Rssfeed_News/parser::parseNewRecords</model>
+                </run>
+            </my_cron>
+        </jobs>
+    </crontab>
     <admin>
         <routers>
             <adminhtml>

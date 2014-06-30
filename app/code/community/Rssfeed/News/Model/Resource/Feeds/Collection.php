@@ -4,14 +4,14 @@
  *
  * @author Magento
  */
-class Rssfeed_News_Model_Resource_News_Collection extends Mage_Core_Model_Resource_Db_Collection_Abstract
+class Rssfeed_News_Model_Resource_Feeds_Collection extends Mage_Core_Model_Resource_Db_Collection_Abstract
 {
     /**
      * Define collection model
      */
     protected function _construct()
     {
-        $this->_init('rssfeed_news/news');
+        $this->_init('rssfeed_feeds/feeds');
     }
 
     /**
