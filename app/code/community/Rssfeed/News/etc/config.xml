@@ -59,6 +59,7 @@
             </rssfeed_news_setup>
         </resources>
         <events>
+            <!--
             <before_news_item_display>
                 <observers>
                     <rssfeed_news>
@@ -67,6 +68,7 @@
                     </rssfeed_news>
                 </observers>
             </before_news_item_display>
+            -->
         </events>
     </global>
     <frontend>

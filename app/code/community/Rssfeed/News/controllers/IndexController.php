@@ -19,7 +19,7 @@ class Rssfeed_News_IndexController extends Mage_Core_Controller_Front_Action
         }        
     }
     
-    /**git 
+    /**git
      * Index action
      */
     public function indexAction()
