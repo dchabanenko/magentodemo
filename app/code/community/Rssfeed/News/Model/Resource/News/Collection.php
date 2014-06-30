@@ -20,10 +20,14 @@ class Rssfeed_News_Model_Resource_News_Collection extends Mage_Core_Model_Resour
      * @param integer $page
      * @return Magentostudy_News_Model_Resource_News_Collection
      */
-    public function prepareForList($page)
+    public function prepareForList($page, $sourceId)
     {
-        //$this->setPageSize(Mage::helper('rssfeed_news')->getNewsPerPage());
-        //$this->setCurPage($page)->setOrder('pubdate', Varien_Data_Collection::SORT_ORDER_DESC);
+        $this->setPageSize(Mage::helper('rssfeed_news')->getNewsPerPage());
+        $this->setCurPage($page)->setOrder('pubdate', Varien_Data_Collection::SORT_ORDER_DESC);
+        if ($sourceId && $sourceId >= 0) {
+            $this->AddFieldToFilter('source_id', $sourceId);
+        }
+
         return $this;
     }
 }

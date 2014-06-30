@@ -6,6 +6,7 @@
  */
 class Rssfeed_News_Block_List extends Mage_Core_Block_Template
 {
+    private $sourceFilter;
     /**
      * News collection
      *
@@ -32,7 +33,7 @@ class Rssfeed_News_Block_List extends Mage_Core_Block_Template
     {
         if (is_null($this->_newsCollection)) {
             $this->_newsCollection = $this->_getCollection();
-            $this->_newsCollection->prepareForList($this->getCurrentPage());
+            $this->_newsCollection->prepareForList($this->getCurrentPage(), $this->getSourceFilter());
         }
 
         return $this->_newsCollection;
@@ -92,4 +93,31 @@ class Rssfeed_News_Block_List extends Mage_Core_Block_Template
     {
         return Mage::helper('magentostudy_news/image')->resize($item, $width);
     }
+
+    public function getSources()
+    {
+        $sourcesCollection = Mage::getModel('rssfeed_feeds/feeds')->getCollection();
+        return $sourcesCollection->getItems();
+
+    }
+
+    /**
+     * Get the source filter for the news list
+     *
+     * @return int
+     */
+    public function getSourceFilter()
+    {
+        return $this->sourceFilter;
+    }
+
+    /**
+     * Set the source filter for the news list
+     */
+    public function setSourceFilter($filter)
+    {
+        $this->sourceFilter = $filter;
+    }
+
+
 }

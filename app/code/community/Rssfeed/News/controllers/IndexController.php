@@ -37,6 +37,12 @@ class Rssfeed_News_IndexController extends Mage_Core_Controller_Front_Action
             $listBlock->setCurrentPage($currentPage);
         }
 
+        $sourceId = $this->getRequest()->getParam('s');
+        if ($sourceId && $sourceId >= 0) {
+            //$this->AddFieldToFilter('source_id', $sourceId);
+            $listBlock->setSourceFilter($sourceId);
+        }
+
         $this->renderLayout();
     }
 
