@@ -4,7 +4,7 @@
  *
  * @author Magento
  */
-class Rssfeed_Feeds_Model_Feeds extends Mage_Core_Model_Abstract
+class Rssfeed_News_Model_Feeds extends Mage_Core_Model_Abstract
 {
     /**
      * Define resource model
