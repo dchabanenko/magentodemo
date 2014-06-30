@@ -38,8 +38,11 @@ class Rssfeed_News_Model_Parser {
                     'hash' => $hash,
                     'source_id' => $source,
                 );
-                var_dump($item);
-                $newsModel->setData($item)->setOrigData()->save();
+                $sameRecord = $newsModel->getCollection()->AddFieldToFilter('hash', $hash)->getFirstItem()->getData();
+                //var_dump($sameRecord);
+                if (!$sameRecord) {
+                    $newsModel->setData($item)->setOrigData()->save();
+                }
             }
         }
     }
