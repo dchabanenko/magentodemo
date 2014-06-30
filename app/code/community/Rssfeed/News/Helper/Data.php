@@ -4,7 +4,7 @@
  *
  * @author Magento
  */
-class Magentostudy_News_Helper_Data extends Mage_Core_Helper_Data
+class Rssfeed_News_Helper_Data extends Mage_Core_Helper_Data
 {
     /**
      * Path to store config if front-end output is enabled

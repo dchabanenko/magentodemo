@@ -4,7 +4,7 @@
  *
  * @author Magento
  */
-class Magentostudy_News_Block_Item extends Mage_Core_Block_Template
+class RssFeed_News_Block_Item extends Mage_Core_Block_Template
 {
     /**
      * Current news item instance
@@ -32,17 +32,5 @@ class Magentostudy_News_Block_Item extends Mage_Core_Block_Template
     public function getBackUrl()
     {
         return $this->getUrl('*/', array('_query' => $this->_getBackUrlQueryParams()));
-    }
-
-    /**
-     * Return URL for resized News Item image
-     *
-     * @param Magentostudy_News_Model_News $item
-     * @param integer $width
-     * @return string|false
-     */
-    public function getImageUrl($item, $width)
-    {
-        return Mage::helper('magentostudy_news/image')->resize($item, $width);
     }
 }

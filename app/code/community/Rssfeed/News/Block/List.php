@@ -4,7 +4,7 @@
  *
  * @author Magento
  */
-class Magentostudy_News_Block_List extends Mage_Core_Block_Template
+class Rssfeed_News_Block_List extends Mage_Core_Block_Template
 {
     /**
      * News collection
@@ -20,7 +20,7 @@ class Magentostudy_News_Block_List extends Mage_Core_Block_Template
      */
     protected function _getCollection()
     {
-        return  Mage::getResourceModel('magentostudy_news/news_collection');
+        return  Mage::getResourceModel('rssfeed_news/news_collection');
     }
 
     /**
@@ -68,7 +68,7 @@ class Magentostudy_News_Block_List extends Mage_Core_Block_Template
     {
         $pager = $this->getChild('news_list_pager');
         if ($pager) {
-            $newsPerPage = Mage::helper('magentostudy_news')->getNewsPerPage();
+            $newsPerPage = Mage::helper('rssfeed_news')->getNewsPerPage();
 
             $pager->setAvailableLimit(array($newsPerPage => $newsPerPage));
             $pager->setTotalNum($this->getCollection()->getSize());

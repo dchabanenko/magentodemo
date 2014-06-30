@@ -36,14 +36,14 @@ $table = $installer->getConnection()
         'nullable' => true,
         'default'  => null,
     ), 'Creation Time')
-    ->addColumn('source_id', Varien_Db_Ddl_Table::TYPE_INDEGER, null, array(
+    ->addColumn('source_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
         'nullable' => true,
     ), 'source id')
     ->addColumn('hash', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array(
         'nullable' => true,
     ), 'Hash')
     ->addIndex($installer->getIdxName(
-            $installer->getTable('magentostudy_news/news'),
+            $installer->getTable('rssfeed_news/news'),
             array('pubdate'),
             Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX
         ),
@@ -51,7 +51,7 @@ $table = $installer->getConnection()
         array('type' => Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX)
     )
     ->addIndex($installer->getIdxName(
-            $installer->getTable('magentostudy_news/news'),
+            $installer->getTable('rssfeed_news/news'),
             array('hash'),
             Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX
         ),
@@ -63,7 +63,7 @@ $table = $installer->getConnection()
 $installer->getConnection()->createTable($table);
 
 $table = $installer->getConnection()
-    ->newTable($installer->getTable('rssfeed_news/feeds'))
+    ->newTable($installer->getTable('rssfeed_feeds/feeds'))
     ->addColumn('id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
         'unsigned' => true,
         'identity' => true,

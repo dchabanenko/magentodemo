@@ -26,6 +26,19 @@
                     </news>
                 </entities>
             </news_resource>
+            <rssfeed_feeds>
+                <class>Rssfeed_Feeds_Model</class>
+                <resourceModel>feeds_resource</resourceModel>
+            </rssfeed_feeds>
+            <feeds_resource>
+                <class>Rssfeed_Feeds_Model_Resource</class>
+                <entities>
+                    <feeds>
+                        <table>rssfeed_feeds</table>
+                    </feeds>
+                </entities>
+            </feeds_resource>
+
         </models>
         <helpers>
             <rssfeed_news>
@@ -62,14 +75,14 @@
                 <use>standard</use>
                 <args>
                     <module>Rssfeed_News</module>
-                    <frontName>news</frontName>
+                    <frontName>rssnews</frontName>
                 </args>
             </rssfeed_news>
         </routers>
         <layout>
             <updates>
                 <rssfeed_news>
-                    <file>rssfeed_news.xml</file>
+                    <file>Rssfeed_News.xml</file>
                 </rssfeed_news>
             </updates>
         </layout>

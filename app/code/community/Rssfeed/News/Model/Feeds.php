@@ -4,14 +4,14 @@
  *
  * @author Magento
  */
-class Rssfeed_News_Model_News extends Mage_Core_Model_Abstract
+class Rssfeed_Feeds_Model_Feeds extends Mage_Core_Model_Abstract
 {
     /**
      * Define resource model
      */
     protected function _construct()
     {
-        $this->_init('rssfeed_news/news');
+        $this->_init('rssfeed_feeds/feeds');
     }
 
     /**
@@ -19,12 +19,12 @@ class Rssfeed_News_Model_News extends Mage_Core_Model_Abstract
      *
      * @return Rssfeed_News_Model_News
      */
-    protected function _beforeSave()
-    {
-        parent::_beforeSave();
-        if ($this->isObjectNew()) {
-            $this->setData('hash', hash('md5', $this->getData('title').$this->getData('description'));
-        }
-        return $this;
-    }
+//    protected function _beforeSave()
+//    {
+//        parent::_beforeSave();
+//        if ($this->isObjectNew()) {
+//            $this->setData('hash', hash('md5', $this->getData('title').$this->getData('description'));
+//        }
+//        return $this;
+//    }
 }

@@ -13,15 +13,15 @@ $installer = $this;
 /**
  * @var $model Magentostudy_News_Model_News
  */
-$model = Mage::getModel('magentostudy_news/news');
+$model = Mage::getModel('rssfeed_news/news');
 
 // Set up data rows
 $dataRows = array(
     array(
         'title'          => 'Magento Developer Certification Exams Now Available Worldwide',
-        'author'         => 'Beth Gomez',
-        'published_at'   => '2011-12-22',
-        'content'        => '<p>In October, Magento launched the beta version of the Magento Certified Developer exam. Dozens of experienced Magento developers flocked to the X.commerce Innovate 2011 Conference &ndash; and to several other beta exam locations around the world &ndash; to take the exam. Many of them earned passing grades, becoming the world&rsquo;s first Magento Certified Developers.<br /><br />With the successful beta behind us, we are excited to announce the global launch of our Certification program. <strong>Now, developers can take the Magento Certified Developer exam at over 5,000 Prometric Testing Centers worldwide.</strong><br /><br />Find out how to register, prepare for, and take the certification exam on the Magento U Certification website.<br /><br /><strong>What you should know about Magento Developer Certification:</strong><br /><br /></p>
+        'pubdate'        => '2011-12-22',
+        'source_id'      => 1,
+        'description'    => '<p>In October, Magento launched the beta version of the Magento Certified Developer exam. Dozens of experienced Magento developers flocked to the X.commerce Innovate 2011 Conference &ndash; and to several other beta exam locations around the world &ndash; to take the exam. Many of them earned passing grades, becoming the world&rsquo;s first Magento Certified Developers.<br /><br />With the successful beta behind us, we are excited to announce the global launch of our Certification program. <strong>Now, developers can take the Magento Certified Developer exam at over 5,000 Prometric Testing Centers worldwide.</strong><br /><br />Find out how to register, prepare for, and take the certification exam on the Magento U Certification website.<br /><br /><strong>What you should know about Magento Developer Certification:</strong><br /><br /></p>
 <ul>
 <li>Magento Developer Certification is the first and only Magento-sponsored and approved professional certification program.</li>
 <li>Magento Developer Certification Exams were developed by a team of experts from across the Magento ecosystem to accurately test and verify real-world development skills.</li>
@@ -56,3 +56,16 @@ $dataRows = array(
 foreach ($dataRows as $data) {
     $model->setData($data)->setOrigData()->save();
 }
+
+$dataRows = array(
+    array('url' => 'http://rss.cnn.com/rss/edition.rss'),
+    array('url' => 'http://feeds.bbci.co.uk/news/rss.xml'),
+    array('url' => 'http://www.vesti.ru/vesti.rss'),
+    array('url' => 'http://www.pravda.com.ua/rss/view_mainnews/'),
+);
+
+$model = Mage::getModel('rssfeed_feeds/feeds');
+// Generate feeds items
+//foreach ($dataRows as $data) {
+//    $model->setData($data)->setOrigData()->save();
+//}

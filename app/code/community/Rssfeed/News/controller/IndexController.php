@@ -4,7 +4,7 @@
  *
  * @author Magento
  */
-class Magentostudy_News_IndexController extends Mage_Core_Controller_Front_Action
+class Rssfeed_News_IndexController extends Mage_Core_Controller_Front_Action
 {
     /**
      * Pre dispatch action that allows to redirect to no route page in case of disabled extension through admin panel
@@ -13,13 +13,13 @@ class Magentostudy_News_IndexController extends Mage_Core_Controller_Front_Actio
     {
         parent::preDispatch();
         
-        if (!Mage::helper('magentostudy_news')->isEnabled()) {
+        if (!Mage::helper('rssfeed_news')->isEnabled()) {
             $this->setFlag('', 'no-dispatch', true);
             $this->_redirect('noRoute');
         }        
     }
     
-    /**
+    /**git 
      * Index action
      */
     public function indexAction()
@@ -50,7 +50,7 @@ class Magentostudy_News_IndexController extends Mage_Core_Controller_Front_Actio
         }
 
         /** @var $model Magentostudy_News_Model_News */
-        $model = Mage::getModel('magentostudy_news/news');
+        $model = Mage::getModel('rssfeed_news/news');
         $model->load($newsId);
 
         if (!$model->getId()) {
