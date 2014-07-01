@@ -16,14 +16,17 @@ class Rssfeed_News_Model_Parser {
     {
         $feedsCollection = Mage::getResourceModel('rssfeed_news/feeds_collection');
         $newsModel = Mage::getModel('rssfeed_news/news');
-        //$r = $this->feedsDbClient->getAllFeedsArray();
+
         foreach ($feedsCollection as $row) {
             $url = $row['url'];
             $source = $row['id'];
-            //echo "<br>$url";
-            //$xmldata =  file_get_contents($url);
+            $itemsExists = $newsModel->getCollection()->AddFieldToFilter('source_id', $source)
+                ->addFieldToSelect('hash')
+                ->getSelect()->query()->fetchAll(PDO::FETCH_COLUMN, 0);
             $structdata = simplexml_load_file($url);
             $newsArray = $structdata->channel->item;
+            $itemArray = array();
+            $itemHashesArray = array();
             for ($j = 0; $j< count($newsArray); $j++) {
                 $title = $newsArray[$j]->title->__toString();
                 $description = $newsArray[$j]->description->__toString();
@@ -38,11 +41,12 @@ class Rssfeed_News_Model_Parser {
                     'hash' => $hash,
                     'source_id' => $source,
                 );
-                $sameRecord = $newsModel->getCollection()->AddFieldToFilter('hash', $hash)->getFirstItem()->getData();
-                //var_dump($sameRecord);
-                if (!$sameRecord) {
-                    $newsModel->setData($item)->setOrigData()->save();
-                }
+                array_push($itemArray, $item);
+                array_push($itemHashesArray, $hash);
+            }
+            $newRecords = array_diff($itemHashesArray, $itemsExists);
+            foreach ($newRecords as $id=>$hash) {
+                $newsModel->setData($itemArray[$id])->setOrigData()->save();
             }
         }
     }
