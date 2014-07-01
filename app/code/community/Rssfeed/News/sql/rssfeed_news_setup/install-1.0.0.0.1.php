@@ -63,7 +63,7 @@ $table = $installer->getConnection()
 $installer->getConnection()->createTable($table);
 
 $table = $installer->getConnection()
-    ->newTable($installer->getTable('rssfeed_feeds/feeds'))
+    ->newTable($installer->getTable('rssfeed_news/feeds'))
     ->addColumn('id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
         'unsigned' => true,
         'identity' => true,

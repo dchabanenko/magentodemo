@@ -11,7 +11,7 @@ class Rssfeed_News_Model_Feeds extends Mage_Core_Model_Abstract
      */
     protected function _construct()
     {
-        $this->_init('rssfeed_feeds/feeds');
+        $this->_init('rssfeed_news/feeds');
     }
 
     /**

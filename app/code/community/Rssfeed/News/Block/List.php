@@ -96,7 +96,7 @@ class Rssfeed_News_Block_List extends Mage_Core_Block_Template
 
     public function getSources()
     {
-        $sourcesCollection = Mage::getModel('rssfeed_feeds/feeds')->getCollection();
+        $sourcesCollection = Mage::getModel('rssfeed_news/feeds')->getCollection();
         return $sourcesCollection->getItems();
 
     }

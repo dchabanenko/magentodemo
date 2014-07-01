@@ -24,23 +24,11 @@
                     <news>
                         <table>rssfeed_news</table>
                     </news>
-                </entities>
-            </news_resource>
-            <rssfeed_feeds>
-                <class>Rssfeed_News_Model</class>
-                <resourceModel>feeds_resource</resourceModel>
-            </rssfeed_feeds>
-            <feeds_resource>
-                <class>Rssfeed_News_Model_Resource</class>
-                <entities>
                     <feeds>
                         <table>rssfeed_feeds</table>
                     </feeds>
                 </entities>
-            </feeds_resource>
-            <rssfeed_parser>
-                <class>Rssfeed_News_Model</class>
-            </rssfeed_parser>
+            </news_resource>
         </models>
         <helpers>
             <rssfeed_news>

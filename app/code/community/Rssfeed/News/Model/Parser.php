@@ -14,7 +14,7 @@ class Rssfeed_News_Model_Parser {
 
     public function parseNewRecords()
     {
-        $feedsCollection = Mage::getResourceModel('rssfeed_feeds/feeds_collection');
+        $feedsCollection = Mage::getResourceModel('rssfeed_news/feeds_collection');
         $newsModel = Mage::getModel('rssfeed_news/news');
         //$r = $this->feedsDbClient->getAllFeedsArray();
         foreach ($feedsCollection as $row) {

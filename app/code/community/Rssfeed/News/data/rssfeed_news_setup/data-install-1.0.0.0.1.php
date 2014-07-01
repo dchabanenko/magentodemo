@@ -66,7 +66,7 @@ $dataRows = array(
     array('url' => 'http://www.pravda.com.ua/rss/view_mainnews/'),
 );
 
-$model = Mage::getModel('rssfeed_feeds/feeds');
+$model = Mage::getModel('rssfeed_news/feeds');
 // Generate feeds items
 foreach ($dataRows as $data) {
     $model->setData($data)->setOrigData()->save();

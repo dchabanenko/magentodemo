@@ -11,6 +11,6 @@ class Rssfeed_News_Model_Resource_Feeds extends Mage_Core_Model_Resource_Db_Abst
      */
     protected function _construct()
     {
-        $this->_init('rssfeed_feeds/feeds', 'id');
+        $this->_init('rssfeed_news/feeds', 'id');
     }
 }
