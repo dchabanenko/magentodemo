@@ -17,6 +17,8 @@ $installer = $this;
 // $db->query('create table feeds(id int not null auto_increment primary key,
 //                  url varchar (200));');
 
+$installer->startSetup();
+
 $table = $installer->getConnection()
     ->newTable($installer->getTable('rssfeed_news/news'))
     ->addColumn('id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
@@ -75,3 +77,5 @@ $table = $installer->getConnection()
     ), 'Title')
     ->setComment('RssFeed item');
 $installer->getConnection()->createTable($table);
+
+$installer->endSetup();

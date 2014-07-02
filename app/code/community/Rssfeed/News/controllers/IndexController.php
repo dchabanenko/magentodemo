@@ -30,7 +30,7 @@ class Rssfeed_News_IndexController extends Mage_Core_Controller_Front_Action
         $listBlock = $this->getLayout()->getBlock('news.list');
 
         if ($listBlock) {
-            $currentPage = abs(intval($this->getRequest()->getParam('p')));
+            $currentPage = (int) $this->getRequest()->getParam('p');
             if ($currentPage < 1) {
                 $currentPage = 1;
             }
